@@ -1,10 +1,34 @@
 import React from "react";
-import { Link } from 'react-scroll';
+import { BrowserRouter as Router,
+        Switch,
+        Route,
+        Link
+  } from "react-router-dom";
 
 
 const NavBar = () => {
     return(
-        <div className="main-container">NavBar</div>
+        <div>
+            <Router>
+                <ul>
+                    <li>
+                        home 
+                    </li>
+                    <li>
+                        about 
+                    </li>
+                    <li>
+                        Channel
+                    </li>
+                </ul>
+
+
+                <hr/>
+                <Switch>
+                    
+                </Switch>
+            </Router>
+        </div>
     )
 
 }
