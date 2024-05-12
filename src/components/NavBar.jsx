@@ -22,9 +22,17 @@ const NavBar = () => {
                     </li>
                 </ul>
 
-
                 <hr/>
                 <Switch>
+                    <Route exact path="/">
+
+                    </Route>
+                    <Route exact path="/">
+
+                    </Route>
+                    <Route exact path="/">
+                        
+                    </Route>
                     
                 </Switch>
             </Router>
