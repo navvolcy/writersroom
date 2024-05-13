@@ -1,7 +1,7 @@
 import React from "react";
 import Home from './Home';
 import About from './About';
-import Channel from './Channel';
+import Episodes from './Episodes';
 import { BrowserRouter as Router,
         Routes,
         Route,
@@ -22,7 +22,7 @@ const NavBar = () => {
                         <Link to="/About">About</Link>
                     </li>
                     <li>
-                        <Link to="/Channel">Channel</Link>
+                        <Link to="/Episodes">Episodes</Link>
                     </li>
                 </ul>
 
@@ -32,7 +32,7 @@ const NavBar = () => {
                     
                     <Route exact path="/About" element={<About/>}/>
                         
-                    <Route exact path="/Channel" element={<Channel/>}/>
+                    <Route exact path="/Episodes" element={<Episodes/>}/>
 
                     
                 </Routes>

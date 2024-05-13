@@ -1,11 +1,11 @@
 import React from "react";
 
-const Channel = () => {
+const Episodes = () => {
     return (
         <div>
-            Channel
+            Episodes
         </div>
     )
 }
 
-export default Channel;
+export default Episodes;
