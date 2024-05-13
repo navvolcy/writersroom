@@ -1,9 +1,13 @@
 import React from "react";
+import Home from './Home';
+import About from './About';
+import Channel from './Channel';
 import { BrowserRouter as Router,
-        Switch,
+        Routes,
         Route,
         Link
   } from "react-router-dom";
+
 
 
 const NavBar = () => {
@@ -12,29 +16,26 @@ const NavBar = () => {
             <Router>
                 <ul>
                     <li>
-                        home 
+                        <Link to="/Home">Home</Link>
                     </li>
                     <li>
-                        about 
+                        <Link to="/About">About</Link>
                     </li>
                     <li>
-                        Channel
+                        <Link to="/Channel">Channel</Link>
                     </li>
                 </ul>
 
                 <hr/>
-                <Switch>
-                    <Route exact path="/">
-
-                    </Route>
-                    <Route exact path="/">
-
-                    </Route>
-                    <Route exact path="/">
-                        
-                    </Route>
+                <Routes>
+                    <Route exact path="/Home" element={<Home/>}/>
                     
-                </Switch>
+                    <Route exact path="/About" element={<About/>}/>
+                        
+                    <Route exact path="/Channel" element={<Channel/>}/>
+
+                    
+                </Routes>
             </Router>
         </div>
     )
