@@ -27,6 +27,7 @@ const NavBar = () => {
                 </ul>
 
                 <hr/>
+                
                 <Routes>
                     <Route exact path="/Home" element={<Home/>}/>
                     
