@@ -9,8 +9,8 @@ const Home = () => {
             <div className=" p-4">
              <img  src={logo} alt="main page"/> 
             </div>
-            <div className="p-4 size-25">
-                <img src={profile} alt="profile pic"/>
+            <div className="p-4 ">
+                <img  src={profile} alt="profile pic"/>
             </div>
             
         </div>
