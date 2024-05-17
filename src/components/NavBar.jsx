@@ -12,12 +12,14 @@ import { BrowserRouter as Router,
 
 const NavBar = () => {
     return(
-        <div>
+        <div className="py-5">
             <Router>
-                <ul>
+                <ul className='  md:flex gap-x-10  text-black-300 italic h-[50px] rgb(223, 158, 105) px-10'>
+                    
                     <li>
                         <Link to="/Home">Home</Link>
                     </li>
+                   
                     <li>
                         <Link to="/About">About</Link>
                     </li>
@@ -26,7 +28,7 @@ const NavBar = () => {
                     </li>
                 </ul>
 
-                <hr/>
+                <hr className="  py-5"/>
                 
                 <Routes>
                     <Route exact path="/Home" element={<Home/>}/>
