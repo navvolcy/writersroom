@@ -12,9 +12,9 @@ import { BrowserRouter as Router,
 
 const NavBar = () => {
     return(
-        <div className="py-5">
+        <div >
             <Router>
-                <ul className='  md:flex gap-x-10  text-black-300 italic h-[50px] rgb(223, 158, 105) px-10'>
+                <ul className='md:flex gap-x-10  text-black-300 italic h-[50px]  bg-orange-400  px-10'>
                     
                     <li>
                         <Link to="/Home">Home</Link>

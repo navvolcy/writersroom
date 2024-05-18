@@ -1,18 +1,13 @@
 import React from "react";
-import logo from './../assets/NewWR.jpg'
-import profile from './../assets/Navi.JPG'
+import logo from './../assets/NewWR.jpg';
 
 
 const Home = () => {
     return(
-        <div className="flex items-center gap-x-10 p-10" >
-            <div className=" p-4">
-             <img  src={logo} alt="main page"/> 
-            </div>
-            <div className="object-contain h-1669 w-672 p-4 ">
-                <img  src={profile} alt="profile pic"/>
-            </div>
-            
+        <div className=" gap-x-10 p-10" >
+            <div className="bg-orange-400 py-14 px-10">
+             <img className="items-center" src={logo} alt="main page"/> 
+            </div>   
         </div>
 
     )
