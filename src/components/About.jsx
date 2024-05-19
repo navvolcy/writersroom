@@ -1,10 +1,11 @@
 import React from "react";
 import profile from './../assets/Navi.JPG';
+import BG from './../assets/BG-repeat.jpg';
 
 
 const About  = () => {
     return(
-    <div className="items-center gap-x-10 p-10 ">
+    <div className="items-center gap-x-10 p-10 " style={{ backgroundImage:`url(${BG})`}}>
         <div className="grid sm:grid-cols-2 object-cover bg-orange-400 p-10">
             <div>
             <img  src={profile} alt="profile pic"/> 

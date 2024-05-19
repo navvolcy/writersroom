@@ -2,6 +2,7 @@ import React from "react";
 import Home from './Home';
 import About from './About';
 import Episodes from './Episodes';
+import BG from './../assets/BG-repeat.jpg';
 import { BrowserRouter as Router,
         Routes,
         Route,
@@ -28,7 +29,7 @@ const NavBar = () => {
                     </li>
                 </ul>
 
-                <hr className="  py-5"/>
+                <hr className="py-10" style={{ backgroundImage:`url(${BG})`}}/>
                 
                 <Routes>
                     <Route exact path="/Home" element={<Home/>}/>
