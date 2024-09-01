@@ -3,6 +3,8 @@ import logo from '../assets/NewWR.jpg'
 
 class Podcast extends Component {
 
+    
+
     render(){
         return (
             <div>

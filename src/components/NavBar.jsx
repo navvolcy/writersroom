@@ -2,7 +2,7 @@ import React from "react";
 import Home from './Home';
 import About from './About';
 import Episodes from './Episodes';
-import BG from './../assets/BG-repeat.jpg';
+
 import { BrowserRouter as Router,
         Routes,
         Route,
@@ -14,8 +14,9 @@ import { BrowserRouter as Router,
 const NavBar = () => {
     return(
         <div >
+          
             <Router>
-                <ul className='md:flex gap-x-10  text-black-300 italic h-[50px]  bg-orange-400  px-10'>
+                <ul className='flex justify-end  items-end gap-x-10  text-2xl text-black-300 italic h-[50px]  bg-orange-400  px-8 py-4'>
                     
                     <li>
                         <Link to="/Home">Home</Link>
@@ -29,7 +30,7 @@ const NavBar = () => {
                     </li>
                 </ul>
 
-                <hr className="py-10" style={{ backgroundImage:`url(${BG})`}}/>
+                
                 
                 <Routes>
                     <Route exact path="/Home" element={<Home/>}/>
