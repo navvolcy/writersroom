@@ -8,8 +8,7 @@ const Home = () => {
         <div >
             <div className=" flex flex-col justify-center items-center p-4">
              <img  className="rounded-full" src={logo} alt="main page"/> 
-            </div>  
-            
+            </div>    
         </div>
 
     )

@@ -8,7 +8,8 @@ class Podcast extends Component {
     render(){
         return (
             <div>
-                <img
+                <img 
+                    className="rounded-full"
                     src={logo}
                     alt=" Avatar"
                     width='240px'

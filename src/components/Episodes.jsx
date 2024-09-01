@@ -27,7 +27,7 @@ const Episodes = () => {
                     Search</button>
                 </div>
                 <div className=" flex justify-between items-center text-center py-8">
-                    <Podcastlist/>
+                    <Podcastlist />
                 </div>
 
 
