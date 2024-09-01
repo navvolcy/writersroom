@@ -5,7 +5,7 @@ import profile from './../assets/Navi.JPG';
 
 const About  = () => {
     return(
-    <div className="flex  h-screen ">
+    <div className="flex h-screen ">
         <div>
         <div className="p-4 mt-20">
             <img className=" rounded-full" src={profile} alt="profile pic"/> 

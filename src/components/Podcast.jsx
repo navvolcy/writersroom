@@ -15,7 +15,9 @@ class Podcast extends Component {
                     width='240px'
                 />
                 <div>
-                    <h3>Episode 1</h3>
+                    <h3 className="text-xl font-bold italic">
+                        Episode 1
+                    </h3>
                 </div>
             </div>
         )
