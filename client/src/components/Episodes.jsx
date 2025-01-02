@@ -26,7 +26,7 @@ const Episodes = () => {
                     </svg>
                     Search</button>
                 </div>
-                <div className=" flex justify-between items-center text-center py-8">
+                <div className="flex justify-between items-center text-center py-8">
                     <Podcastlist />
                 </div>
 
