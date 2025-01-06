@@ -35,7 +35,7 @@ const NavBar = () => {
                         </ul>
 
                         <button className=" justify-end  px-8 py-4 ">
-                            <i className="fa-solid fa-right-to-bracket mr-2"></i>
+                            
                             Sign-In
                         </button>
                     </div>
