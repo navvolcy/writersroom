@@ -3,6 +3,8 @@ import profile from '../assets/Navi.JPG';
 
 
 
+
+
 const About  = () => {
     return(
     <div className="flex h-screen ">
@@ -24,8 +26,14 @@ const About  = () => {
                     tune in on my live podcast Monday, Wednseday , and Friday  4pm PST. See you there!!!
                 </p>
             </div>
+            <div>
+               
+                
+                
+            </div>
             
         </div>
+        
         
 
     </div>
