@@ -32,9 +32,13 @@ const NavBar = () => {
                             <li>
                                 <Link to="/Episodes">Episodes</Link>
                             </li>
+
+                            {/* <li className="justify-end">
+                                <Link to=""> sign-in</Link>
+                            </li> */}
                         </ul>
 
-                        <button className=" justify-end  px-8 py-4 ">
+                        <button className=" justify-end  px-8 py-4 " id="sign-In">
                             
                             Sign-In
                         </button>

@@ -1,15 +1,18 @@
 import React from "react"; 
 import PodcastItems from "./PodcastItems";
+import { useState } from "react";
 
 
 
 
-//list of episodes will come for
+//list of episodes will come form
 
 const Episodes = () => {
+    const[searchEpisode, setSearchEpisode] = useState(0);
     
    //make and api call to the spotify account 
-//use the map function to dynamical make a list of epiodes  
+    //use the map function to dynamical make a list of epiodes  
+    //fetchSearch will make an api call to go into the DB and get the season/episode number 
 
 
 
@@ -22,13 +25,16 @@ const Episodes = () => {
                     <p  className="py-4 text-2xl">Writer's Room </p>
                 </div>
                 <div className="text-center mb-8">
-                    <input className="px-4  max-h-full"/>
+                    <input className="px-4  max-h-full" type='text' value={searchEpisode} maxLength={2}/>
                 </div>
                 <div className="m-8">
                     <PodcastItems/>
                 </div>
                 <div className="text-center p-4">
-                <button  className="border italic font-bold bg-orange-400 text-black cursor-pointer text-xl px-8 pb-4 hover:bg-rose-400 active:bg-pink-900 focus:outline-none focus:ring focus:ring-pink-700 rounded-full"> 
+                <button  className="border italic font-bold bg-orange-400
+                 text-black cursor-pointer text-xl px-8 pb-4
+                  hover:bg-rose-400 active:bg-pink-900 focus:outline-none 
+                  focus:ring focus:ring-pink-700 rounded-full" onClick={"fetchSearch"}> 
                         <svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
                     </svg>
                     Search</button>
