@@ -10,15 +10,14 @@ import { useState } from "react";
 const Episodes = () => {
     const[searchEpisode, setSearchEpisode] = useState(0);
 
-    //handles updating the value on the search bar
+    //controller that updating the value on the search bar
     const handleEpisodes =(event)=>{
         const epValue = event.target.value;
         const numeEpValue = epValue.replace(/[^0-9]/g, '');
         setSearchEpisode(numeEpValue);
     }
     
-   //make and api call to the spotify account 
-    //use the map function to dynamical make a list of epiodes  
+
     
     //fetch will make an api call to go into the DB and get the season/episode number 
     const fetchEpisode = async(e) => {
