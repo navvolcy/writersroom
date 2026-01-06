@@ -9,10 +9,22 @@ import { useState } from "react";
 
 const Episodes = () => {
     const[searchEpisode, setSearchEpisode] = useState(0);
+
+    //handles updating the value on the search bar
+    const handleEpisodes =(event)=>{
+        const epValue = event.target.value;
+        const numeEpValue = epValue.replace(/[^0-9]/g, '');
+        setSearchEpisode(numeEpValue);
+    }
     
    //make and api call to the spotify account 
     //use the map function to dynamical make a list of epiodes  
-    //fetchSearch will make an api call to go into the DB and get the season/episode number 
+    
+    //fetch will make an api call to go into the DB and get the season/episode number 
+    const fetchEpisode = async(e) => {
+
+
+    }
 
 
 
@@ -25,7 +37,7 @@ const Episodes = () => {
                     <p  className="py-4 text-2xl">Writer's Room </p>
                 </div>
                 <div className="text-center mb-8">
-                    <input className="px-4  max-h-full" type='text' value={searchEpisode} maxLength={2}/>
+                    <input className="px-4  max-h-full" type='text' value={searchEpisode} maxLength={2} onChange={handleEpisodes}/>
                 </div>
                 <div className="m-8">
                     <PodcastItems/>
