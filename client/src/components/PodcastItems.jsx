@@ -1,20 +1,15 @@
 import React, {Component} from "react";
 import { useState } from "react";
 import logo from '../assets/NewWR.jpg'
+import Episodes from "./Episodes";
 
 
-class PodcastItems extends Component {
+const PodcastItems = ({episode, date, details})=> {
    
-    Title =() =>{
-        
 
-
-
-
-    }
     
 
-    render(){
+   
         return (
             <div className="m-4 p-4 border rounded-lg shadow-md border-neutral-300 overflow-clip bg-orange-400">
                 
@@ -26,22 +21,22 @@ class PodcastItems extends Component {
                 />
                 <div  className="flex justify-center mt-4">
                     <h3 className="text-xl font-bold italic">
-                        Episode: 
+                        Episode: {episode}
                     </h3>
                 </div>
                 <div  className="flex justify-center mt-4">
                     <h3 className="text-xl font-bold italic">
-                       Date:
+                       Date: {date}
                     </h3>
                 </div>
                 <div className="flex justify-center mt-4">
                     <h3 className="text-xl font-bold italic">
-                        Details : 
+                        Details : {details}
                     </h3>
                 </div>
             </div>
         )
     }
-}
+
 
 export default PodcastItems;
