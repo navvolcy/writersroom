@@ -1,17 +1,34 @@
 import React from "react";
-import logo from '../assets/NewWR.jpg';
-
-
+import logo from "../assets/NewWR.jpg";
 
 const Home = () => {
-    return(
-        <div >
-            <div className=" flex flex-col justify-center items-center p-4 py-28">
-             <img  className="rounded-full" src={logo} alt="main page"/> 
-            </div>    
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <div
+        className="w-full max-w-md p-6 border rounded-lg shadow-md
+                   animate-[fadeIn_0.5s_ease-out]"
+      >
+        {/* Logo */}
+        <div className="flex justify-center mb-6">
+          <img
+            className="rounded-full w-40 h-40 object-cover"
+            src={logo}
+            alt="Main Page Logo"
+          />
         </div>
 
-    )
-}
+        {/* Text */}
+        <div className="text-center">
+          <h1 className="text-3xl font-bold mb-2">
+            Welcome to Writer&apos;s Room
+          </h1>
+          <p className="text-gray-500">
+            Explore episodes, ideas, and stories.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Home;

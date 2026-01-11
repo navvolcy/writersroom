@@ -1,44 +1,37 @@
 import React from "react";
-import profile from '../assets/Navi.JPG';
+import profile from "../assets/Navi.JPG";
 
-
-
-
-
-const About  = () => {
-    return(
-    <div className="flex h-screen ">
-        <div>
-        <div className="p-4 mt-20">
-            <img className=" rounded-full" src={profile} alt="profile pic"/> 
+const About = () => {
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <div
+        className="w-full max-w-md p-6 border rounded-lg shadow-md
+                   animate-[fadeIn_0.5s_ease-out]"
+      >
+        {/* Profile Image */}
+        <div className="flex justify-center mb-6">
+          <img
+            className="rounded-full w-40 h-40 object-cover"
+            src={profile}
+            alt="Profile"
+          />
         </div>
-        
-        </div>
-        <div className="m-10 text-3xl flex-1 ">
-            <div className=" text-center">
-                <p className="text-3xl  font-bold italic">
-                    About
-                </p>  
-            </div>
-            <div>
-            <   p className="text-2xl italic m-10 ">
-                    Hello and welcome to th online page to my podcast where you can do listen and enjoy a collection of the Writer's Rooms best interviews and conversation. Be sure to 
-                    tune in on my live podcast Monday, Wednseday , and Friday  4pm PST. See you there!!!
-                </p>
-            </div>
-            <div>
-               
-                
-                
-            </div>
-            
-        </div>
-        
-        
 
+        {/* Heading */}
+        <div className="text-center mb-4">
+          <h1 className="text-3xl font-bold italic">About</h1>
+        </div>
+
+        {/* Description */}
+        <p className="text-gray-700 text-lg italic text-center">
+          Hello and welcome to the online page of my podcast, where you can listen
+          and enjoy a collection of the Writer's Room's best interviews and
+          conversations. Be sure to tune in to my live podcast on Monday,
+          Wednesday, and Friday at 4pm PST. See you there!
+        </p>
+      </div>
     </div>
-
-    )
-}
+  );
+};
 
 export default About;
