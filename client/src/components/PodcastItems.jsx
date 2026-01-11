@@ -1,42 +1,43 @@
-import React, {Component} from "react";
-import { useState } from "react";
-import logo from '../assets/NewWR.jpg'
-import Episodes from "./Episodes";
+import React from "react";
+import logo from "../assets/NewWR.jpg";
 
+const PodcastItems = ({ episode, date, details }) => {
+  return (
+    <div
+      className="p-4 border rounded-lg shadow-sm border-neutral-300
+                 animate-[fadeIn_0.4s_ease-out]"
+    >
+      {/* Image */}
+      <div className="flex justify-center mb-4">
+        <img
+          className="rounded-full w-32 h-32 object-cover"
+          src={logo}
+          alt="Podcast Avatar"
+        />
+      </div>
 
-const PodcastItems = ({episode, date, details})=> {
-   
+      {/* Episode */}
+      <div className="text-center mb-2">
+        <h3 className="text-lg font-semibold italic">
+          Episode: {episode}
+        </h3>
+      </div>
 
-    
+      {/* Date */}
+      <div className="text-center mb-2">
+        <h3 className="text-lg font-semibold italic">
+          Date: {date}
+        </h3>
+      </div>
 
-   
-        return (
-            <div className="m-4 p-4 border rounded-lg shadow-md border-neutral-300 overflow-clip bg-orange-400">
-                
-                <img 
-                    className="rounded-full"
-                    src={logo}
-                    alt=" Avatar"
-                    width='240px'
-                />
-                <div  className="flex justify-center mt-4">
-                    <h3 className="text-xl font-bold italic">
-                        Episode: {episode}
-                    </h3>
-                </div>
-                <div  className="flex justify-center mt-4">
-                    <h3 className="text-xl font-bold italic">
-                       Date: {date}
-                    </h3>
-                </div>
-                <div className="flex justify-center mt-4">
-                    <h3 className="text-xl font-bold italic">
-                        Details : {details}
-                    </h3>
-                </div>
-            </div>
-        )
-    }
-
+      {/* Details */}
+      <div className="text-center">
+        <h3 className="text-lg font-semibold italic">
+          Details: {details}
+        </h3>
+      </div>
+    </div>
+  );
+};
 
 export default PodcastItems;

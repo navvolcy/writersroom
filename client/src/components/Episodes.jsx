@@ -1,78 +1,91 @@
-
-import React from "react"; 
+import React, { useState } from "react";
 import PodcastItems from "./PodcastItems";
-import { useState } from "react";
-
-
-
-
-
-//list of episodes will come form
+import logo from '../assets/NewWR.jpg'
 
 const Episodes = () => {
-    const today = new Date();
-    const formattedDate = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
-    const[room, setRoom] = useState(
-        {   Episode:"1",
-            Date:formattedDate,
-            Details:" hello ",
-        }
-    );
-   
-  
-    //controller that updating the value on the search bar
-    const handleEpisodes = (event) =>{
-        const epValue = event.target.value;
-        const numeEpValue = epValue.replace(/[^0-9]/g, '');
-        
-        setRoom(prev =>({
-            ...prev,
-            Episode:numeEpValue,
-        }));
-    }
-    
+  const today = new Date();
+  const formattedDate = `${today.getFullYear()}-${String(
+    today.getMonth() + 1
+  ).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
 
-    
-    //fetch will make an api call to go into the DB and get the season/episode number 
-    const fetchEpisode = async() => {
+  const [room, setRoom] = useState({
+    Episode: "1",
+    Date: formattedDate,
+    Details: "hello",
+  });
 
+  const [loading, setLoading] = useState(false);
 
-    }
+  const handleEpisodes = (event) => {
+    const numOnly = event.target.value.replace(/[^0-9]/g, "");
 
-    return (
-        <div>
-            <div className=" flex flex-col justify-center items-center h-screen  ">
-                <div className="flex flex-col justify-center items-center m-4">
-                    <p className='text-4xl italic inline text-center'>Episodes</p>
-                    <p  className="py-4 text-2xl">Writer's Room </p>
-                </div>
-                <div className="text-center mb-8">
-                    <input className="px-4  max-h-full" type='text' value={room.episode} maxLength={2} onChange={handleEpisodes}/>
-                </div>
-                <div className="m-8">
-                    <PodcastItems 
-                    episode={room.Episode} 
-                    date={room.Date}
-                    details={room.Details}/>
-                </div>
-                <div className="text-center p-4 ">
-                    <button  className="border italic font-bold bg-orange-400
-                    text-black cursor-pointer text-xl px-8 pb-4
-                    hover:bg-rose-400 active:bg-pink-900 focus:outline-none 
-                    focus:ring focus:ring-pink-700 rounded-full shadow-md shadow-[#040c16] 
-                    hover:scale-110 duration-500" onClick={fetchEpisode}> 
-                            <svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
-                        </svg>
-                        Search</button>
-                </div>
-                <div className="flex justify-between items-center text-center py-8">
-                    
-                </div>
+    setRoom((prev) => ({
+      ...prev,
+      Episode: numOnly,
+    }));
+  };
 
+  const fetchEpisode = async () => {
+    setLoading(true);
 
-                </div>
+    setTimeout(() => {
+      console.log("Searching episode:", room.Episode);
+      setLoading(false);
+    }, 1000);
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      {/* Card */}
+      <div className="w-full max-w-md p-6 border rounded-lg shadow-md
+                      animate-[fadeIn_0.5s_ease-out]">
+
+        {/* Logo */}
+        <div className="flex justify-center mb-4">
+          <img
+            src={logo}
+            alt="Podcast Logo"
+            className="w-20 h-20 rounded-full"
+          />
         </div>
-    )
-}
+
+        {/* Header */}
+        <div className="text-center mb-6">
+          <h1 className="text-3xl font-bold">Episodes</h1>
+          <p className="text-gray-500">Writer&apos;s Room</p>
+        </div>
+
+        {/* Input */}
+        <input
+          className="w-full mb-6 px-4 py-2 border rounded text-center
+                     focus:outline-none focus:ring focus:ring-gray-300"
+          type="text"
+          inputMode="numeric"
+          maxLength={2}
+          value={room.Episode}
+          onChange={handleEpisodes}
+        />
+
+        {/* Episode Card */}
+        <div className="mb-6">
+          <PodcastItems
+            episode={room.Episode}
+            date={room.Date}
+            details={room.Details}
+          />
+        </div>
+
+        {/* Button */}
+        <button
+          onClick={fetchEpisode}
+          className="w-full py-2 border rounded font-semibold
+                     hover:bg-gray-100 transition duration-200"
+        >
+          {loading ? "Searching..." : "Search"}
+        </button>
+      </div>
+    </div>
+  );
+};
 
 export default Episodes;
