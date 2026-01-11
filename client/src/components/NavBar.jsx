@@ -1,65 +1,52 @@
-import React from "react";
-import Home from './Home';
-import About from './About';
-import Episodes from './Episodes';
+import React, { useState } from "react";
+import { Routes, Route, Link } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
 
-import { BrowserRouter as Router,
-        Routes,
-        Route,
-        Link
-  } from "react-router-dom";
-
-
+import Home from "./Home";
+import About from "./About";
+import Episodes from "./Episodes";
+import Login from "./Login";
 
 const NavBar = () => {
-    return(
-        <div >
-          
-            <Router>
-                <div className="flex justify-center bg-orange-400  px-4 py-1 text-xl text-black-300 italic">
-                
-                    <div className="flex justify-between w-full max-w-8xl">
-                
-                        <ul className='flex items-end gap-x-10  h-[50px] '>
-                            
-                            <li>
-                                <Link to="/Home">Home</Link>
-                            </li>
-                        
-                            <li>
-                                <Link to="/About">About</Link>
-                            </li>
-                            <li>
-                                <Link to="/Episodes">Episodes</Link>
-                            </li>
+  const [nav, setNav] = useState(false);
 
-                            {/* <li className="justify-end">
-                                <Link to=""> sign-in</Link>
-                            </li> */}
-                        </ul>
+  return (
+    <>
+      {/* Navbar */}
+      <div className="fixed w-full h-[80px] flex justify-between items-center px-4">
+        <ul className="hidden md:flex gap-x-10">
+          <li><Link to="/home">Home</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/episodes">Episodes</Link></li>
+          <li><Link to="/login">Login</Link></li>
+        </ul>
 
-                        <button className=" justify-end  px-8 py-4 " id="sign-In">
-                            
-                            Sign-In
-                        </button>
-                    </div>
-                </div>
-
-                
-                
-                <Routes>
-                    <Route exact path="/Home" element={<Home/>}/>
-                    
-                    <Route exact path="/About" element={<About/>}/>
-                        
-                    <Route exact path="/Episodes" element={<Episodes/>}/>
-
-                    
-                </Routes>
-            </Router>
+        {/* Hamburger */}
+        <div onClick={() => setNav(!nav)} className="md:hidden z-10">
+          {nav ? <FaTimes /> : <FaBars />}
         </div>
-    )
+      </div>
 
-}
+      {/* Mobile Menu */}
+      {nav && (
+        <ul className="md:hidden absolute top-[80px] left-0 w-full bg-white">
+          <li><Link to="/home" onClick={() => setNav(false)}>Home</Link></li>
+          <li><Link to="/about" onClick={() => setNav(false)}>About</Link></li>
+          <li><Link to="/episodes" onClick={() => setNav(false)}>Episodes</Link></li>
+          <li><Link to="/login" onClick={() => setNav(false)}>Login</Link></li>
+        </ul>
+      )}
+
+      {/* Routes */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/episodes" element={<Episodes />} />
+        <Route path="/login" element={<Login />} /> 
+      </Routes>
+    </>
+  );
+};
 
 export default NavBar;

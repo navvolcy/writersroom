@@ -6,7 +6,7 @@ import logo from '../assets/NewWR.jpg';
 const Home = () => {
     return(
         <div >
-            <div className=" flex flex-col justify-center items-center p-4">
+            <div className=" flex flex-col justify-center items-center p-4 py-28">
              <img  className="rounded-full" src={logo} alt="main page"/> 
             </div>    
         </div>
