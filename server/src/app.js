@@ -1,10 +1,9 @@
-const express = require('express');
-const app = express();
+import express from 'express';
+const app = express(); 
+import episodeRoutes from './routes/episodes.routes.js'
 
 app.use(express.json());
 
-app.get('/health', (req, res) => {
-  res.json({ status: 'OK' });
-});
+app.use('/api/episodes', episodeRoutes);
 
-module.exports = app;
+export default  app;

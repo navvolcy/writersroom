@@ -1,3 +1,4 @@
+//Defines API endpoints (URLs), receives request , pass control to controllers
 import { Router } from 'express';
 const router = Router();
 
