@@ -1,70 +1,134 @@
-# Getting Started with Create React App
+🎙️ Writer’s Room Podcast
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Writer’s Room Podcast is a full-stack web application that allows users to browse and search a catalog of podcast episodes. The project focuses on clean architecture, modern JavaScript practices, and scalable API design.
 
-## Available Scripts
+Built as a portfolio-quality application, it demonstrates frontend–backend separation, RESTful API design, and readiness for production data persistence.
 
-In the project directory, you can run:
+🚀 What This Project Demonstrates
 
-### `npm start`
+Full-stack development with React + Node.js
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Clean separation of concerns (client / server)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+RESTful API design with Express
 
-### `npm test`
+Modern JavaScript (ES Modules, async/await)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Scalable project structure used in production apps
 
-### `npm run build`
+Utility-first styling with Tailwind CSS
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+🧱 Tech Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Frontend
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+React
 
-### `npm run eject`
+React Router
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Tailwind CSS
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+JavaScript (ES6+)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Backend
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Node.js
 
-## Learn More
+Express
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+ES Modules
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+dotenv
 
-### Code Splitting
+Nodemon
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Database (In Progress)
 
-### Analyzing the Bundle Size
+MongoDB
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Mongoose
 
-### Making a Progressive Web App
+📁 Project Structure
+writersroom/
+├── client/        # React frontend
+│   └── src/
+│       ├── components/
+│       ├── pages/
+│       ├── styles/
+│       └── assets/
+│
+├── server/        # Node + Express API
+│   └── src/
+│       ├── server.js
+│       ├── app.js
+│       ├── routes/
+│       ├── controllers/
+│       ├── models/
+│       └── config/
+│
+└── README.md
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+🛠️ Getting Started
+Frontend
+cd client
+npm install
+npm start
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Runs at:
+http://localhost:3000
 
-### Deployment
+Backend
+cd server
+npm install
+npm run dev
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+Runs at:
+http://localhost:5000
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+🔑 Environment Variables
+
+Create server/.env:
+
+PORT=5000
+MONGO_URI=mongodb://127.0.0.1:27017/writersroom
+
+🔗 API Design (Example)
+Method	Endpoint	Purpose
+GET	/api/episodes	Fetch all episodes
+GET	/api/episodes/:number	Fetch episode by number
+POST	/api/episodes	Create new episode
+
+The API follows REST principles and is designed to scale with persistent storage.
+
+🎨 UI & Styling
+
+Tailwind CSS for rapid, consistent styling
+
+Responsive layouts
+
+Component-based UI design
+
+📌 Roadmap
+
+MongoDB persistence
+
+Episode filtering & sorting
+
+Favorites system
+
+Authentication
+
+Admin episode management
+
+Production deployment
+
+👨‍💻 Author
+
+Virlendy “Nav” Volcy
+Computer Science Graduate | Full-Stack Developer
+
+💡 Recruiter Note
+
+This project emphasizes clean architecture, maintainability, and real-world patterns over complexity. It is intentionally structured to reflect how production full-stack applications are built and maintained.
