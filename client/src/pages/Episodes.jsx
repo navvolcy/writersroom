@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PodcastItems from "./PodcastItems";
-import logo from '../assets/NewWR.jpg'
+import logo from '../images/NewWR.jpg'
 
 const Episodes = () => {
   const today = new Date();

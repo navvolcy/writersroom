@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 
-import Home from "./Home";
-import About from "./About";
-import Episodes from "./Episodes";
-import Login from "./Login";
+import Home from "../pages/Home";
+import About from "../pages/About";
+import Episodes from "../pages/Episodes";
+import Login from "../pages/Login";
 
 const NavBar = () => {
   const [nav, setNav] = useState(false);

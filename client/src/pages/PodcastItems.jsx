@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/NewWR.jpg";
+import logo from "../images/NewWR.jpg";
 
 const PodcastItems = ({ episode, date, details }) => {
   return (
