@@ -1,14 +1,15 @@
 {
   "name": "writersroom-api",
   "scripts": {
-    "dev": "nodemon server.js",
-    "start": "node server.js"
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js"
   },
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^4.19.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.11"
   }
 }
+
 
