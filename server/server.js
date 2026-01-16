@@ -1,16 +1,14 @@
-// import express from 'express';
-// const app = express();
-// const port = 3000;
+import express, { json } from 'express';
+const app = express();
+
+app.use(json());
 
 
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'OK' });
+});
 
-
-
-
-
-
-
-
-// app.listen(port, () => {
-//   console.log(`Example app listening on port ${port}`)
-// })
+const PORT = 5000;
+app.listen(PORT, () => {
+  console.log(`API running on port ${PORT}`);
+});
