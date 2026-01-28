@@ -5,17 +5,21 @@ import cors from 'cors';
 const app = express();
 
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://writersroom.onrender.com' ],
+  origin: [
+    "http://localhost:3000",
+    "https://writersroom.vercel.app"
+  ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true
+  credentials: false
 }));
+
 
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
 
-//test route
+// Health check for deployment & monitoring
 app.get('/api/health', (req, res) => {
   res.json({ status: "Backend connected ✅" });
 });

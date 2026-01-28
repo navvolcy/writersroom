@@ -1,9 +1,12 @@
 {
   "name": "writersroom-api",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "dev": "nodemon src/server.js",
-    "start": "node src/server.js",
-    "type": "module"
+    "start": "node src/server.js"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
