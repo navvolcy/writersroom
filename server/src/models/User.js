@@ -17,14 +17,14 @@ const UserSchema = new mongoose.Schema(
             unique: true,
             lowercase: true,
             trim: true,
-            match:  [/^\S+@\S+\.\S+$/, 'Please use a valid email address'], //Ensures valid email format
+            match:  [/^\S+@\S+\.\S+$/, 'Please use a valid email address'], //Ensures valid email format 
         },
 
         password:{
             type: String,
             required: true,
             minlength: 8,
-            select: false, //critical security feature, Password hashes will never be returned in queries unless explicitly requested
+            select: false, //critical security feature, Password hashes will never be returned in queries unless explicitly requested 
         },
     },
     {
