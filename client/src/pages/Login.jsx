@@ -13,15 +13,20 @@ const Login = () => {
     setError(null);
 
     try {
+
+      const API_URL = process.env.REACT_APP_API_URL;
+      
       const res = await fetch(
-        `${process.env.REACT_APP_API_URL}/api/auth/login`,
+        `${API_URL}/api/auth/login`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({ email, password }),
-        }
+        },
+        console.log("API URL:", process.env.REACT_APP_API_URL)
+
       );
 
       const data = await res.json();

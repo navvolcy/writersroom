@@ -1,8 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PodcastItems from "../components/PodcastItems";
 import logo from "../images/NewWR.jpg";
 
 const Episodes = () => {
+
+  useEffect(() => {
+  const API_URL = process.env.REACT_APP_API_URL;
+  const testConnection = async () => {
+    try {
+      const res = await fetch(`${API_URL}/api/health`)
+
+      const data = await res.json();
+      console.log("Backend says:", data);
+    } catch (err) {
+      console.error("Backend connection failed:", err);
+    }
+  };
+
+  testConnection();
+}, []);
+
   const episodesData = [
     { id: 1, episode: "1", date: "2024-01-10", details: "Pilot episode" },
     { id: 2, episode: "2", date: "2024-01-17", details: "Writing process" },
