@@ -1,9 +1,4 @@
-import express from 'express';
-const app = express(); 
-import episodeRoutes from './routes/episodes.routes.js'
+import authRoutes from './routes/auth.routes.js';
 
-app.use(express.json());
+app.use('/api/auth', authRoutes);
 
-app.use('/api/episodes', episodeRoutes);
-
-export default  app;
