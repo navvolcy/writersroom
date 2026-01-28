@@ -1,88 +1,93 @@
 import React, { useState } from "react";
-import PodcastItems from "./PodcastItems";
-import logo from '../images/NewWR.jpg'
+import PodcastItems from "../components/PodcastItems";
+import logo from "../images/NewWR.jpg";
 
 const Episodes = () => {
-  const today = new Date();
-  const formattedDate = `${today.getFullYear()}-${String(
-    today.getMonth() + 1
-  ).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+  const episodesData = [
+    { id: 1, episode: "1", date: "2024-01-10", details: "Pilot episode" },
+    { id: 2, episode: "2", date: "2024-01-17", details: "Writing process" },
+    { id: 3, episode: "3", date: "2024-01-24", details: "Industry talk" },
+    { id: 4, episode: "10", date: "2024-02-01", details: "Special guest" },
+  ];
 
-  const [room, setRoom] = useState({
-    Episode: "1",
-    Date: formattedDate,
-    Details: "hello",
-  });
+  const [inputValue, setInputValue] = useState("");
+  const [searchValue, setSearchValue] = useState("");
 
-  const [loading, setLoading] = useState(false);
-
-  const handleEpisodes = (event) => {
-    const numOnly = event.target.value.replace(/[^0-9]/g, "");
-
-    setRoom((prev) => ({
-      ...prev,
-      Episode: numOnly,
-    }));
+  const handleInputChange = (e) => {
+    const numOnly = e.target.value.replace(/[^0-9]/g, "");
+    setInputValue(numOnly);
   };
 
-  const fetchEpisode = async () => {
-    setLoading(true);
-
-    setTimeout(() => {
-      console.log("Searching episode:", room.Episode);
-      setLoading(false);
-    }, 1000);
+  const handleSearch = () => {
+    setSearchValue(inputValue);
   };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
+
+  const filteredEpisodes = searchValue
+    ? episodesData.filter((ep) =>
+        ep.episode.includes(searchValue)
+      )
+    : episodesData;
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      {/* Card */}
-      <div className="w-full max-w-md p-6 border rounded-lg shadow-md
-                      animate-[fadeIn_0.5s_ease-out]">
+    <div className="min-h-screen px-6 py-10">
+      <div className="max-w-5xl mx-auto">
 
-        {/* Logo */}
-        <div className="flex justify-center mb-4">
+        {/* Header */}
+        <div className="flex flex-col items-center mb-8">
           <img
             src={logo}
             alt="Podcast Logo"
-            className="w-20 h-20 rounded-full"
+            className="w-24 h-24 rounded-full mb-4"
           />
-        </div>
-
-        {/* Header */}
-        <div className="text-center mb-6">
-          <h1 className="text-3xl font-bold">Episodes</h1>
+          <h1 className="text-4xl font-bold">Episodes</h1>
           <p className="text-gray-500">Writer&apos;s Room</p>
         </div>
 
-        {/* Input */}
-        <input
-          className="w-full mb-6 px-4 py-2 border rounded text-center
-                     focus:outline-none focus:ring focus:ring-gray-300"
-          type="text"
-          inputMode="numeric"
-          maxLength={2}
-          value={room.Episode}
-          onChange={handleEpisodes}
-        />
-
-        {/* Episode Card */}
-        <div className="mb-6">
-          <PodcastItems
-            episode={room.Episode}
-            date={room.Date}
-            details={room.Details}
+        {/* Search */}
+        <div className="flex gap-3 max-w-sm mx-auto mb-10">
+          <input
+            className="flex-1 px-4 py-2 border rounded text-center
+                       focus:outline-none focus:ring focus:ring-gray-300"
+            type="text"
+            placeholder="Episode #"
+            value={inputValue}
+            onChange={handleInputChange}
+            onKeyDown={handleKeyDown}
           />
+
+          <button
+            onClick={handleSearch}
+            className="px-4 py-2 border rounded font-semibold
+                       hover:bg-gray-100 transition"
+          >
+            Search
+          </button>
         </div>
 
-        {/* Button */}
-        <button
-          onClick={fetchEpisode}
-          className="w-full py-2 border rounded font-semibold
-                     hover:bg-gray-100 transition duration-200"
-        >
-          {loading ? "Searching..." : "Search"}
-        </button>
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredEpisodes.length ? (
+            filteredEpisodes.map((ep) => (
+              <PodcastItems
+                key={ep.id}
+                episode={ep.episode}
+                date={ep.date}
+                details={ep.details}
+              />
+            ))
+          ) : (
+            <p className="col-span-full text-center text-gray-500 italic">
+              No episodes found
+            </p>
+          )}
+        </div>
+
       </div>
     </div>
   );
