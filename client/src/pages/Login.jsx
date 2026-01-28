@@ -1,30 +1,62 @@
 import React, { useState } from "react";
-import logo from '../images/NewWR.jpg'
+import logo from "../images/NewWR.jpg";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError(null);
 
-    // TEMP: just log values (replace with real auth later)
-    console.log("Email:", email);
-    console.log("Password:", password);
+    try {
+      const res = await fetch(
+        `${process.env.REACT_APP_API_URL}/api/auth/login`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        }
+      );
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message || "Login failed");
+      }
+
+      console.log("Login success:", data);
+
+      // store token (for later protected routes)
+      localStorage.setItem("token", data.token);
+
+      
+
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center"> 
+    <div className="min-h-screen flex items-center justify-center">
       <form
         onSubmit={handleSubmit}
         className="w-full max-w-sm p-6 border rounded-lg shadow-md"
       >
-        <img 
-        className="rounded-full mx-12"
-        src={logo}
-        alt=" Avatar"
-        width='240px'
+        <img
+          className="rounded-full mx-auto mb-4"
+          src={logo}
+          alt="Avatar"
+          width="240"
         />
+
         <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
 
         <div className="mb-4">
@@ -51,49 +83,18 @@ const Login = () => {
 
         <button
           type="submit"
+          disabled={loading}
           className="w-full bg-orange-400 py-2 rounded font-semibold"
         >
-          Sign In
+          {loading ? "Signing in..." : "Sign In"}
         </button>
+
+        {error && (
+          <p className="text-red-500 text-center mt-4">{error}</p>
+        )}
       </form>
     </div>
   );
 };
 
 export default Login;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*import logo from '../assets/NewWR.jpg'
-
-  <div>
-            <img 
-            className="rounded-full"
-            src={logo}
-            alt=" Avatar"
-            width='240px'
-                        />
-
-        </div*/
