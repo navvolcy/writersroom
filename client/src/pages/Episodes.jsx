@@ -65,7 +65,7 @@ const Episodes = () => {
             onClick={handleSearch}
             className="px-4 py-2 border rounded font-semibold
                        hover:bg-gray-100 transition"
-          > 
+          >
             Search
           </button>
         </div>

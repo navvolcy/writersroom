@@ -17,11 +17,9 @@ app.use('/api/auth', authRoutes);
 
 //test route
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok' });
+  res.json({ status: "Backend connected ✅" });
 });
 
-app.post('/api/auth/test', (req, res) => {
-  res.json({ message: 'Auth route works' });
-});
+
 
 export default app;
