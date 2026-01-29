@@ -1,8 +1,10 @@
 import express from 'express';
 import authRoutes from './routes/auth.routes.js';
 import cors from 'cors';
+import connectDB from "./config/db.js";
 
 const app = express();
+connectDB();
 
 app.use(cors({
   origin: [
