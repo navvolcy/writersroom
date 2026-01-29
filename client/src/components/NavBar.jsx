@@ -6,6 +6,7 @@ import Home from "../pages/Home";
 import About from "../pages/About";
 import Episodes from "../pages/Episodes";
 import Login from "../pages/Login";
+import Register from "../pages/Register";
 
 const NavBar = () => {
   const [nav, setNav] = useState(false);
@@ -44,6 +45,7 @@ const NavBar = () => {
         <Route path="/about" element={<About />} />
         <Route path="/episodes" element={<Episodes />} />
         <Route path="/login" element={<Login />} /> 
+        <Route path="/register" element={<Register />} />
       </Routes>
     </>
   );

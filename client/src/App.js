@@ -8,6 +8,7 @@ function App() {
       
         <div className="w-full max-w-8xl">
           <NavBar />
+          
         </div>     
     </Router>
   );

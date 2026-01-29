@@ -10,7 +10,7 @@ const PodcastItems = ({
   onToggleFavorite
 }) => {
   return (
-    <div className="relative p-4 border rounded-lg shadow-sm border-neutral-300">
+    <div className="relative p-4 border rounded-lg shadow-sm border-neutral-300  bg-white">
       
       {/* Favorite Icon */}
       <button

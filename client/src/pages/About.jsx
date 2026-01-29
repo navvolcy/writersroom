@@ -6,7 +6,7 @@ const About = () => {
     <div className="min-h-screen flex items-center justify-center">
       <div
         className="w-full max-w-md p-6 border rounded-lg shadow-md
-                   animate-[fadeIn_0.5s_ease-out]"
+                   animate-[fadeIn_0.5s_ease-out]  bg-white"
       >
         {/* Profile Image */}
         <div className="flex justify-center mb-6">
