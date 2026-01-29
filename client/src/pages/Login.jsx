@@ -15,7 +15,7 @@ const Login = () => {
     try {
 
       const API_URL = process.env.REACT_APP_API_URL;
-      
+
       const res = await fetch(
         `${API_URL}/api/auth/login`,
         {
@@ -43,7 +43,8 @@ const Login = () => {
       
 
     } catch (err) {
-      setError(err.message);
+      console.error("Login error", err)
+      alert("Login failed. Check your email/password.")
     } finally {
       setLoading(false);
     }
