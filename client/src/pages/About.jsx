@@ -23,7 +23,7 @@ const About = () => {
         </div>
 
         {/* Description */}
-        <p className="text-gray-700 text-lg italic text-center">
+        <p className="text-gray-1000 text-lg italic text-center">
           Hello and welcome to the online page of my podcast, where you can listen
           and enjoy a collection of the Writer's Room's best interviews and
           conversations. Be sure to tune in to my live podcast on Monday,

@@ -62,7 +62,7 @@ const Episodes = () => {
             alt="Podcast Logo"
             className="w-24 h-24 rounded-full mb-4"
           />
-          <h1 className="text-4xl font-bold">Episodes</h1>
+          <h1 className="text-4xl font-bold text-gray-950">Episodes</h1>
           <p className="text-gray-500">Writer&apos;s Room</p>
         </div>
 

@@ -22,7 +22,7 @@ const Home = () => {
           <h1 className="text-3xl font-bold mb-2">
             Welcome to Writer&apos;s Room
           </h1>
-          <p className="text-gray-500">
+          <p className="text-gray-1000">
             Explore episodes, ideas, and stories.
           </p>
         </div>
