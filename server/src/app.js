@@ -9,7 +9,7 @@ connectDB();
 app.use(cors({
   origin: [
     "http://localhost:3000",
-    "https://writersroom.onrender.com"
+    "https://WritersRoom.onrender.com"
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
