@@ -14,8 +14,10 @@ const Register = () => {
     setLoading(true);
 
     try {
+      const API_URL = process.env.REACT_APP_API_URL;
+      console.log("register frontend we hit!")
       const res = await fetch(
-        `${process.env.REACT_APP_API_URL}/api/auth/register`,
+        `${API_URL}/api/auth/register`,
         {
           method: "POST",
           headers: {
