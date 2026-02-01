@@ -38,14 +38,6 @@ app.use(cors({
 
 app.use(express.json());
 
-// -------------------- API ROUTES --------------------
-app.use('/api/auth', authRoutes);
-
-// Health check for deployment & monitoring
-app.get('/api/health', (req, res) => {
-  res.json({ status: "Backend connected ✅" });
-});
-
 // -------------------- SERVE REACT BUILD --------------------
 
 // Serve static React files
@@ -54,6 +46,14 @@ app.use(express.static(path.join(__dirname, "../../client/build")));
 // For all other routes, serve index.html
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../../client/build/index.html"));
+});
+
+// -------------------- API ROUTES --------------------
+app.use('/api/auth', authRoutes);
+
+// Health check for deployment & monitoring
+app.get('/api/health', (req, res) => {
+  res.json({ status: "Backend connected ✅" });
 });
 
 export default app;
