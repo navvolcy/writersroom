@@ -48,12 +48,14 @@ app.get('/api/health', (req, res) => {
 c
 // -------------------- SERVE REACT BUILD --------------------
 
-// This tells Express where the React build folder is
-app.use(express.static(path.join(__dirname, "../client/build")));
+// Serve static React files
+app.use(express.static(path.join(__dirname, "../../client/build")));
 
-// This tells Express to serve React for ANY route that isn't API
+// For all other routes, serve index.html
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+  res.sendFile(path.join(__dirname, "../../client/build/index.html"));
 });
 
 export default app;
+
+//cd client && npm install && npm run build && cd server && npm install
