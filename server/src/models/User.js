@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt';
 
 const UserSchema = new mongoose.Schema(
     {
-        userName:{
+        username:{
             type: String,
             required:true,
             unique:true, //Prevents duplicate usernames , Auto-cleans input
