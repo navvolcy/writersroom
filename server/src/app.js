@@ -1,15 +1,22 @@
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
 import authRoutes from './routes/auth.routes.js';
 import connectDB from './config/db.js';
 
-// Initialize app
-const app = express();
 
-// Connect to MongoDB
+const app = express();
 connectDB();
 
-// CORS setup
+
+
+// Needed because ES modules don't have __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// -------------------- MIDDLEWARE --------------------
 const allowedOrigins = [
   "http://localhost:3000",            // Local dev
   "https://writersroom.onrender.com"  // Production frontend
@@ -28,15 +35,25 @@ app.use(cors({
   allowedHeaders: ["Content-Type", "Authorization"],
 }));
 
-// Body parser
+
 app.use(express.json());
 
-// Auth routes
+// -------------------- API ROUTES --------------------
 app.use('/api/auth', authRoutes);
 
 // Health check for deployment & monitoring
 app.get('/api/health', (req, res) => {
   res.json({ status: "Backend connected ✅" });
+});
+
+// -------------------- SERVE REACT BUILD --------------------
+
+// This tells Express where the React build folder is
+app.use(express.static(path.join(__dirname, "../client/build")));
+
+// This tells Express to serve React for ANY route that isn't API
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
 export default app;
