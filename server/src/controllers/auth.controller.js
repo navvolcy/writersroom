@@ -20,30 +20,26 @@ export const registerUser = async (req, res) => {
   try {
     const { username, email, password } = req.body;
 
-    // 1. Validate input
     if (!username || !email || !password) {
       return res.status(400).json({ message: "All fields are required" });
     }
 
-    // 2. Check if user already exists
+    // ✅ Check if user exists
     const userExists = await User.findOne({
       $or: [{ email }, { username }],
     });
 
     if (userExists) {
-      return res.status(400).json({
-        message: "User already exists",
-      });
+      return res.status(400).json({ message: "User already exists" });
     }
 
-    // 3. Create user (password hashed in model)
+    // ✅ Create user
     const user = await User.create({
       username,
       email,
-      password,
+      password, // hashed in model
     });
 
-    // 4. Respond with token
     res.status(201).json({
       _id: user._id,
       username: user.username,
@@ -51,10 +47,10 @@ export const registerUser = async (req, res) => {
       token: generateToken(user._id),
     });
   } catch (error) {
-    console.error("REGISTER ERROR:", error); // ← you will now see real errors in Render logs
     res.status(500).json({ message: error.message });
   }
 };
+
 
 /**
  * @route   POST /api/auth/login
