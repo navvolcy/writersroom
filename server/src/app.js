@@ -45,7 +45,7 @@ app.use('/api/auth', authRoutes);
 app.get('/api/health', (req, res) => {
   res.json({ status: "Backend connected ✅" });
 });
-c
+
 // -------------------- SERVE REACT BUILD --------------------
 
 // Serve static React files
