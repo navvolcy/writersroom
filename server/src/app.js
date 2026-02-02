@@ -21,7 +21,7 @@ const __dirname = path.dirname(__filename);
 app.use(cors({
   origin: [
     "http://localhost:3000",
-    "https://writersroom-u75v.onrender.com"
+    "https://writersroom.onrender.com"
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
